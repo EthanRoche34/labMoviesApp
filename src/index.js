@@ -6,8 +6,6 @@ import MoviePage from "./pages/movieDetailsPage";
 import favouriteMoviesPage from "./pages/favouriteMoviesPage"; // NEW
 import {Link} from 'react-router-dom'
 
-
-
 const App = () => {
   return (
     <BrowserRouter>
