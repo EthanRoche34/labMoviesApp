@@ -24,6 +24,13 @@ const MovieListPage = (props) => {
     else setGenreFilter(value);
   };
 
+  const addToFavourites = (movieId) => {
+    const updatedMovies = movies.map((m) =>
+      m.id === movieId ? { ...m, favourite: true } : m
+    );
+    setMovies(updatedMovies);
+  };
+
   useEffect(() => {
     fetch(
       // 43588b9bb9014fa3057910693af034e9
@@ -54,7 +61,7 @@ const MovieListPage = (props) => {
       genreFilter={genreFilter}
     />
         </Grid>
-        <MovieList movies={displayedMovies} />
+        <MovieList movies={displayedMovies} selectFavourite={addToFavourites} />
       </Grid>
     </Grid>
   );
