@@ -6,6 +6,7 @@ import MoviePage from "./pages/movieDetailsPage";
 import FavouriteMoviesPage from "./pages/favouriteMoviesPage"; // NEW
 import {Link} from 'react-router-dom'
 import MovieReviewPage from "./pages/movieReviewPage";
+import UpcomingPage from "./pages/upcomingMovies";
 import SiteHeader from './components/siteHeader'
 
 
@@ -19,6 +20,8 @@ const App = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="*" element={ <Navigate to="/" /> } />
         <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
+        <Route path="movies/upcoming" element={ <UpcomingPage /> } />
+
 
       </Routes>
     </BrowserRouter>
