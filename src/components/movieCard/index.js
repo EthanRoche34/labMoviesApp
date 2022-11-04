@@ -7,6 +7,7 @@ import CardHeader from "@mui/material/CardHeader";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import MustWatchIcon from "@mui/icons-material/PlaylistAddCircle";
 import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import IconButton from "@mui/material/IconButton";
@@ -19,27 +20,39 @@ import { MoviesContext } from "../../contexts/moviesContext";
 
 export default function MovieCard({ movie, action }) {
   const { favourites, addToFavourites } = useContext(MoviesContext);
+  const { mustWatch, addToMustWatch } = useContext(MoviesContext);
+
  
    if (favourites.find((id) => id === movie.id)) {
      movie.favourite = true;
    } else {
      movie.favourite = false
    }
- 
+
+   if (mustWatch.find((id) => id === movie.id)) {
+    movie.mustWatch = true;
+  } else {
+    movie.mustWatch = false
+  }
+
    const handleAddToFavourite = (e) => {
      e.preventDefault();
      addToFavourites(movie);
    };
  
- 
+   const handleAddToMustWatch = (e) => {
+    e.preventDefault();
+    addToMustWatch(movie);
+  };
 
   return (
     <Card sx={{ maxWidth: 345 }}>
         <CardHeader
         avatar={
-          movie.favourite ? (
+          // Temporary Solution For This exercise
+          movie.mustWatch ? (
             <Avatar sx={{ backgroundColor: 'red' }}>
-              <FavoriteIcon />
+              <MustWatchIcon />
             </Avatar>
           ) : null
         }
