@@ -54,6 +54,11 @@ export default function MovieCard({ movie, action }) {
             <Avatar sx={{ backgroundColor: 'red' }}>
               <MustWatchIcon />
             </Avatar>
+          ) :           
+          movie.favourite ? (
+            <Avatar sx={{ backgroundColor: 'red' }}>
+              <FavoriteIcon />
+            </Avatar>
           ) : null
         }
         title={
